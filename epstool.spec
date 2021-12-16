@@ -1,12 +1,10 @@
 Name:           epstool
-Version:        3.08
-Release:        1%{?dist}
+Version:        3.09
+Release:        1
 Summary:        A utility to create or extract preview images in EPS files
 License:        GPLv2+
 URL:            http://pages.cs.wisc.edu/~ghost/gsview/epstool.htm
-Source0:        http://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/%{name}-%{version}.tar.gz
-# Patch to compile with gcc 4.3 and newer (taken from Gentoo)
-Patch0:         epstool-3.08-gcc43.patch
+Source0:        http://www.ghostgum.com.au/download/%{name}-%{version}.tar.gz
 
 BuildRequires:  gcc
 
@@ -26,7 +24,6 @@ Features:
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 # SMP build doesn't work.
@@ -43,5 +40,8 @@ install -D -p -m 644 doc/epstool.1 %{buildroot}%{_mandir}/man1/epstool.1
 %{_mandir}/man1/epstool.1.*
 
 %changelog
+* Wed Dec 15 2021 jiangxinyu <jiangxinyu@kylinos.cn> - 3.09-1
+- upgrade to 3.09
+
 * Tue May 05 2020 Hubble Zhu <zhuhengbo1@huawei.com> - 3.08-1
 - First release.
