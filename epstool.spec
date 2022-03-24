@@ -1,6 +1,6 @@
 Name:           epstool
 Version:        3.08
-Release:        1%{?dist}
+Release:        2
 Summary:        A utility to create or extract preview images in EPS files
 License:        GPLv2+
 URL:            http://pages.cs.wisc.edu/~ghost/gsview/epstool.htm
@@ -43,5 +43,8 @@ install -D -p -m 644 doc/epstool.1 %{buildroot}%{_mandir}/man1/epstool.1
 %{_mandir}/man1/epstool.1.*
 
 %changelog
+* Thu Mar 24 2022 caodongxia <caodongxia@huawei.com> - 3.08-2
+- Delete %{?dist}
+
 * Tue May 05 2020 Hubble Zhu <zhuhengbo1@huawei.com> - 3.08-1
 - First release.
