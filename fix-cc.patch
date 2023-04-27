@@ -1,0 +1,24 @@
+diff -u -r epstool-3.09/src/os2.mak epstool-3.09/src/os2.mak
+--- epstool-3.09/src/os2.mak	2015-03-15 18:25:28.000000000 +0800
++++ epstool-3.09/src/os2.mak	2023-04-26 21:39:14.000000000 +0800
+@@ -39,7 +39,7 @@
+ GSCDEBUG= -g
+ GSCFLAGS= $(CDEFS) $(EMXOMF) -Wall -Wstrict-prototypes -Wmissing-declarations -Wmissing-prototypes -fno-builtin -fno-common -Wcast-qual -Wwrite-strings $(CDEBUG) $(GSCDEBUG) $(RPM_OPT_FLAGS) $(XINCLUDE) $(PFLAGS) $(LIBPNGCFLAGS) $(GTKCFLAGS)
+ CCAUX=gcc
+-CC=gcc
++CC?=gcc
+ LFLAGS=$(PLINK) $(LIBPNGLIBS) $(GTKLIBS)
+ CLINK=gcc $(LDFLAGS) $(EMXOMF)
+ LINK=gcc $(LDFLAGS) $(EMXOMF)
+diff -u -r epstool-3.09/src/unixcom.mak epstool-3.09/src/unixcom.mak
+--- epstool-3.09/src/unixcom.mak	2015-03-15 18:25:28.000000000 +0800
++++ epstool-3.09/src/unixcom.mak	2023-04-26 21:39:04.000000000 +0800
+@@ -20,7 +20,7 @@
+ GSCDEBUG= -g
+ GSCFLAGS= $(CDEFS) -Wall -Wstrict-prototypes -Wmissing-declarations -Wmissing-prototypes -fno-builtin -fno-common -Wcast-qual -Wwrite-strings $(CDEBUG) $(GSCDEBUG) $(RPM_OPT_FLAGS) $(XINCLUDE) $(PFLAGS) $(LIBPNGCFLAGS) $(GTKCFLAGS)
+ CCAUX=gcc
+-CC=gcc
++CC?=gcc
+ LFLAGS=$(PLINK) $(LIBPNGLIBS) $(GTKLIBS)
+ CLINK=gcc $(LDFLAGS)
+ LINK=gcc $(LDFLAGS)

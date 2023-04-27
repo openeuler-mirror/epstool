@@ -1,10 +1,11 @@
 Name:           epstool
 Version:        3.09
-Release:        1
+Release:        2
 Summary:        A utility to create or extract preview images in EPS files
 License:        GPLv2+
 URL:            http://pages.cs.wisc.edu/~ghost/gsview/epstool.htm
 Source0:        http://www.ghostgum.com.au/download/%{name}-%{version}.tar.gz
+Patch0:         fix-cc.patch
 
 BuildRequires:  gcc
 
@@ -23,7 +24,7 @@ Features:
   Motorola) machines.
 
 %prep
-%setup -q
+%autosetup -n %{name}-%{version} -p1
 
 %build
 # SMP build doesn't work.
@@ -40,6 +41,9 @@ install -D -p -m 644 doc/epstool.1 %{buildroot}%{_mandir}/man1/epstool.1
 %{_mandir}/man1/epstool.1.*
 
 %changelog
+* Thu Apr 27 2023 yoo <sunyuechi@iscas.ac.cn> - 3.09-2
+- Add support for specifying cc
+
 * Wed Dec 15 2021 jiangxinyu <jiangxinyu@kylinos.cn> - 3.09-1
 - upgrade to 3.09
 
